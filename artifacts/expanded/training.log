@@ -1,0 +1,9 @@
+Starting finetune: device=cuda, epochs=8, sizes=7820/238/1183
+Initial checkpoint: val_loss=0.4984 val_acc=0.9412 (epoch 0)
+epoch 1/8 train_loss=0.3227 train_acc=0.9985 val_loss=0.4979 val_acc=0.9412 time=181.6s
+epoch 2/8 train_loss=0.3154 train_acc=0.9991 val_loss=0.5044 val_acc=0.9244 time=176.5s
+epoch 3/8 train_loss=0.3103 train_acc=0.9995 val_loss=0.5023 val_acc=0.9412 time=232.6s
+epoch 4/8 train_loss=0.3094 train_acc=0.9994 val_loss=0.5022 val_acc=0.9328 time=164.6s
+epoch 5/8 train_loss=0.3083 train_acc=0.9996 val_loss=0.4940 val_acc=0.9370 time=199.9s
+Early stopping after 5 epochs.
+Test accuracy=0.8884, macro F1=0.8904; best epoch=0

@@ -1,0 +1,13 @@
+﻿image_id,relative_path,true_index,pred_index,true_breed,pred_breed,confidence,correct
+British_Shorthair_38,oxford-iiit-pet/images/British_Shorthair_38.jpg,4,9,British_Shorthair,Russian_Blue,0.9999567270278932,False
+Abyssinian_90,oxford-iiit-pet/images/Abyssinian_90.jpg,0,1,Abyssinian,Bengal,0.9999359846115112,False
+Bombay_202,oxford-iiit-pet/images/Bombay_202.jpg,3,6,Bombay,Maine_Coon,0.9997901320457458,False
+Siamese_31,oxford-iiit-pet/images/Siamese_31.jpg,10,2,Siamese,Birman,0.999707043170929,False
+Russian_Blue_81,oxford-iiit-pet/images/Russian_Blue_81.jpg,9,4,Russian_Blue,British_Shorthair,0.9995009899139404,False
+Ragdoll_86,oxford-iiit-pet/images/Ragdoll_86.jpg,8,2,Ragdoll,Birman,0.9992781281471252,False
+Persian_72,oxford-iiit-pet/images/Persian_72.jpg,7,4,Persian,British_Shorthair,0.999205768108368,False
+Bengal_28,oxford-iiit-pet/images/Bengal_28.jpg,1,6,Bengal,Maine_Coon,0.9991732239723206,False
+Sphynx_250,oxford-iiit-pet/images/Sphynx_250.jpg,11,6,Sphynx,Maine_Coon,0.9990450739860536,False
+Egyptian_Mau_82,oxford-iiit-pet/images/Egyptian_Mau_82.jpg,5,1,Egyptian_Mau,Bengal,0.9978378415107728,False
+Maine_Coon_267,oxford-iiit-pet/images/Maine_Coon_267.jpg,6,0,Maine_Coon,Abyssinian,0.9969149827957152,False
+Birman_86,oxford-iiit-pet/images/Birman_86.jpg,2,8,Birman,Ragdoll,0.9911248087882996,False

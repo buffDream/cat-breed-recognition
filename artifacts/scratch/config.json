@@ -1,0 +1,68 @@
+{
+  "data_root": "..\\..\\work\\cat-data",
+  "manifest": "artifacts/data/manifest.csv",
+  "out_dir": "artifacts/scratch",
+  "run": "scratch",
+  "epochs": 60,
+  "batch_size": 64,
+  "image_size": 160,
+  "seed": 42,
+  "patience": 18,
+  "workers": 4,
+  "device": "cuda",
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "optimizer": "AdamW",
+  "scheduler": "CosineAnnealingLR",
+  "pretrained": false,
+  "num_classes": 12,
+  "class_names": [
+    "Abyssinian",
+    "Bengal",
+    "Birman",
+    "Bombay",
+    "British_Shorthair",
+    "Egyptian_Mau",
+    "Maine_Coon",
+    "Persian",
+    "Ragdoll",
+    "Russian_Blue",
+    "Siamese",
+    "Sphynx"
+  ],
+  "class_names_zh": [
+    "阿比西尼亚猫",
+    "孟加拉猫",
+    "伯曼猫",
+    "孟买猫",
+    "英国短毛猫",
+    "埃及猫",
+    "缅因猫",
+    "波斯猫",
+    "布偶猫",
+    "俄罗斯蓝猫",
+    "暹罗猫",
+    "斯芬克斯猫"
+  ],
+  "device_used": "cuda",
+  "python": "3.12.14",
+  "pytorch": "2.9.1+cu128",
+  "torchvision": "0.24.1+cu128",
+  "cuda_runtime": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5080 Laptop GPU",
+  "split_counts": {
+    "train": 950,
+    "val": 238,
+    "test": 1183
+  },
+  "normalization_mean": [
+    0.485,
+    0.456,
+    0.406
+  ],
+  "normalization_std": [
+    0.229,
+    0.224,
+    0.225
+  ]
+}

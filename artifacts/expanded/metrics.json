@@ -1,0 +1,13 @@
+{
+  "test_accuracy": 0.8884192730346576,
+  "macro_precision": 0.8970745851339729,
+  "macro_recall": 0.8895031208359633,
+  "macro_f1": 0.8903900881303813,
+  "num_test": 1183,
+  "best_epoch": 0,
+  "best_val_accuracy": 0.9411764705882353,
+  "training_seconds": 974.2045942000004,
+  "test_loss": 0.6231242907017042,
+  "evaluated_checkpoint": "best.pt",
+  "evaluation_split": "test"
+}

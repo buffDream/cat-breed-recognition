@@ -264,7 +264,7 @@ def compare_runs(run_dirs, out_dir):
         bars = ax.bar(x + (index - (len(frame) - 1) / 2) * width, values, width, label=row["run"])
         ax.bar_label(bars, labels=[f"{value:.1%}" for value in values], padding=3, fontsize=9)
     ax.set(xticks=x, xticklabels=labels, ylim=(0, 1.12), ylabel="分数", title="各组实验的独立测试集结果")
-    ax.legend(frameon=False)
+    ax.legend(frameon=False, loc="upper left", ncol=len(frame))
     ax.grid(axis="y", alpha=0.2)
     ax.set_axisbelow(True)
     fig.tight_layout()

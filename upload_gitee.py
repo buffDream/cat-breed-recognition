@@ -20,6 +20,10 @@ def main():
     root = Path(__file__).resolve().parent
     git = shutil.which('git')
     if not git:
+        bundled = Path.home() / '.cache/codex-runtimes/codex-primary-runtime/dependencies/native/git/cmd/git.exe'
+        if bundled.is_file():
+            git = str(bundled)
+    if not git:
         raise RuntimeError('没有找到Git。请安装Git for Windows后重新打开本程序。')
     if not (root / '.git').is_dir():
         raise RuntimeError('此目录没有开发历史。请在原项目目录或包含.git的源码包中运行。')

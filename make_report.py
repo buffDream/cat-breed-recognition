@@ -137,8 +137,11 @@ def main():
     p(f"当前演示使用“{LABELS[main_run]}”的验证最佳参数，在同一组 {n_test:,} 张测试图片中识别正确 {correct:,} 张，准确率为 {m['test_accuracy']:.2%}。各实验先按验证准确率选择轮次，最后再在同一测试集记录结果。最终版本也依据验证准确率选择，若相同则保留较早的模型。所有分数来自保存的逐图预测表。")
     cfg = configs[main_run]
     p(f"选中模型的训练集有 {cfg['split_counts']['train']:,} 张图片，最多设置 {cfg['epochs']} 轮，实际记录 {len(history)} 轮，批量大小为 {cfg['batch_size']}，优化器为 AdamW。运行设备是 {cfg.get('gpu', 'CPU')}。当前模型在第 {m['best_epoch']} 轮被保存；第 0 轮表示继续训练前的初始模型在验证集上更好。")
-    picture(ROOT / "artifacts" / "figures" / "comparison.png", 455, 205)
-    picture(ROOT / "artifacts" / "figures" / main_run / "training_curves.png", 455, 190)
+    if "expanded" in metrics:
+        expanded_history = pd.read_csv(ROOT / "artifacts" / "expanded" / "history.csv")
+        p(f"扩充组实际训练 {len(expanded_history)} 轮，最佳为第 {metrics['expanded']['best_epoch']} 轮。第0轮是起始权重，扩充后没有超过原模型的验证准确率，因此演示保留优化组。", small)
+    picture(ROOT / "artifacts" / "figures" / "comparison.png", 455, 180)
+    picture(ROOT / "artifacts" / "figures" / main_run / "training_curves.png", 455, 170)
     p("准确率统计分对的图片比例。宏平均 F1 先分别计算每个品种的分数，再取平均，可以同时查看各品种的识别表现。", small)
     story.append(PageBreak())
 

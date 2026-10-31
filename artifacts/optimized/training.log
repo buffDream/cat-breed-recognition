@@ -1,0 +1,26 @@
+Starting finetune: device=cuda, epochs=35, sizes=950/238/1183
+epoch 1/35 train_loss=2.2410 train_acc=0.3442 val_loss=2.0148 val_acc=0.5672 time=20.9s
+epoch 2/35 train_loss=1.7978 train_acc=0.7084 val_loss=1.6806 val_acc=0.7185 time=1.5s
+epoch 3/35 train_loss=1.1654 train_acc=0.7789 val_loss=0.6652 val_acc=0.9076 time=2.4s
+epoch 4/35 train_loss=0.5423 train_acc=0.9358 val_loss=0.5494 val_acc=0.9118 time=2.3s
+epoch 5/35 train_loss=0.4237 train_acc=0.9800 val_loss=0.5067 val_acc=0.9328 time=2.2s
+epoch 6/35 train_loss=0.3867 train_acc=0.9853 val_loss=0.5078 val_acc=0.9328 time=2.2s
+epoch 7/35 train_loss=0.3823 train_acc=0.9853 val_loss=0.5074 val_acc=0.9286 time=2.2s
+epoch 8/35 train_loss=0.3439 train_acc=0.9989 val_loss=0.5057 val_acc=0.9328 time=2.2s
+epoch 9/35 train_loss=0.3386 train_acc=0.9958 val_loss=0.4915 val_acc=0.9370 time=2.2s
+epoch 10/35 train_loss=0.3278 train_acc=0.9989 val_loss=0.5087 val_acc=0.9370 time=2.2s
+epoch 11/35 train_loss=0.3267 train_acc=0.9968 val_loss=0.4984 val_acc=0.9412 time=2.2s
+epoch 12/35 train_loss=0.3219 train_acc=0.9989 val_loss=0.5011 val_acc=0.9370 time=2.2s
+epoch 13/35 train_loss=0.3198 train_acc=0.9979 val_loss=0.5103 val_acc=0.9370 time=2.2s
+epoch 14/35 train_loss=0.3305 train_acc=0.9968 val_loss=0.5023 val_acc=0.9412 time=2.2s
+epoch 15/35 train_loss=0.3194 train_acc=0.9979 val_loss=0.4868 val_acc=0.9370 time=2.3s
+epoch 16/35 train_loss=0.3168 train_acc=0.9989 val_loss=0.4788 val_acc=0.9412 time=2.2s
+epoch 17/35 train_loss=0.3147 train_acc=0.9989 val_loss=0.4843 val_acc=0.9370 time=2.3s
+epoch 18/35 train_loss=0.3136 train_acc=1.0000 val_loss=0.4937 val_acc=0.9370 time=2.2s
+epoch 19/35 train_loss=0.3114 train_acc=0.9989 val_loss=0.4950 val_acc=0.9286 time=2.2s
+epoch 20/35 train_loss=0.3099 train_acc=1.0000 val_loss=0.5003 val_acc=0.9328 time=2.2s
+epoch 21/35 train_loss=0.3092 train_acc=1.0000 val_loss=0.4959 val_acc=0.9412 time=2.2s
+epoch 22/35 train_loss=0.3106 train_acc=1.0000 val_loss=0.5120 val_acc=0.9244 time=2.2s
+epoch 23/35 train_loss=0.3081 train_acc=1.0000 val_loss=0.4969 val_acc=0.9286 time=2.2s
+Early stopping after 23 epochs.
+Test accuracy=0.8884, macro F1=0.8904; best epoch=11

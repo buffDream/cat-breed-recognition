@@ -41,6 +41,7 @@ class CatApp(tk.Tk):
         self.build_ui()
         self.after(100, self.poll_results)
         if auto_demo:
+            self.after(300, lambda: self.attributes("-topmost", True))
             self.after(1800, self.show_next_example)
             self.after(8500, self.show_next_example)
             self.after(15500, self.show_next_example)
@@ -50,6 +51,7 @@ class CatApp(tk.Tk):
             self.after(44000, lambda: self.show_chart("错分样例"))
             self.after(52000, lambda: self.show_chart("实验对比"))
             self.after(62000, self.show_next_example)
+            self.after(78000, self.destroy)
 
     @staticmethod
     def find_models(checkpoint: Path | None) -> dict[str, Path]:

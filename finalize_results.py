@@ -66,6 +66,10 @@ def main():
                         'source_url':'https://www.robots.ox.ac.uk/~vgg/data/pets/'})
     pd.DataFrame(records).to_csv(target/'examples.csv',index=False,encoding='utf-8-sig')
     table='\n'.join(f"| {LABELS[r]} | {metrics[r]['best_val_accuracy']:.2%} | {metrics[r]['test_accuracy']:.2%} | {metrics[r]['macro_f1']:.4f} |" for r in runs)
+    outcome=''
+    if 'expanded' in runs:
+        length=len(pd.read_csv(ROOT/'artifacts/expanded/history.csv'))
+        outcome=f"扩充组实际运行{length}轮，最佳权重为第{metrics['expanded']['best_epoch']}轮；本次扩充没有超过原优化组的验证准确率，最终保留{LABELS[selected]}。"
     content=f'''# 看图识猫
 
 选择一张猫的照片，程序显示一个品种，例如“这是一只布偶猫”。项目用PyTorch基础层手写ResNet18和ResNet50，使用NumPy、Pandas、Matplotlib整理数据和展示实际实验结果。
@@ -85,6 +89,8 @@ Oxford-IIIT Pet原始猫图共2,371张，分为950训练、238验证、1,183测�
 | 实验 | 最佳验证准确率 | 测试准确率 | 宏平均F1 |
 |---|---:|---:|---:|
 {table}
+
+{outcome}
 
 每组先根据验证集保存最佳权重，训练结束后加载该权重记录测试结果。扩充组从optimized继续训练，并把初始权重作为第0轮候选；如果最佳轮次是0，表示新训练没有超过起始权重。
 

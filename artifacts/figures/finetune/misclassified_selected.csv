@@ -1,0 +1,13 @@
+﻿image_id,relative_path,true_index,pred_index,true_breed,pred_breed,confidence,correct
+Ragdoll_228,oxford-iiit-pet/images/Ragdoll_228.jpg,8,2,Ragdoll,Birman,0.9999133348464966,False
+Russian_Blue_221,oxford-iiit-pet/images/Russian_Blue_221.jpg,9,3,Russian_Blue,Bombay,0.9990153312683104,False
+Siamese_56,oxford-iiit-pet/images/Siamese_56.jpg,10,2,Siamese,Birman,0.9970993995666504,False
+Birman_56,oxford-iiit-pet/images/Birman_56.jpg,2,10,Birman,Siamese,0.9967988729476928,False
+British_Shorthair_230,oxford-iiit-pet/images/British_Shorthair_230.jpg,4,9,British_Shorthair,Russian_Blue,0.9961819648742676,False
+Egyptian_Mau_214,oxford-iiit-pet/images/Egyptian_Mau_214.jpg,5,1,Egyptian_Mau,Bengal,0.993699312210083,False
+Abyssinian_226,oxford-iiit-pet/images/Abyssinian_226.jpg,0,8,Abyssinian,Ragdoll,0.9905847907066344,False
+Maine_Coon_242,oxford-iiit-pet/images/Maine_Coon_242.jpg,6,1,Maine_Coon,Bengal,0.9847107529640198,False
+Persian_224,oxford-iiit-pet/images/Persian_224.jpg,7,5,Persian,Egyptian_Mau,0.9826871752738952,False
+Bengal_9,oxford-iiit-pet/images/Bengal_9.jpg,1,0,Bengal,Abyssinian,0.9784053564071656,False
+Sphynx_85,oxford-iiit-pet/images/Sphynx_85.jpg,11,9,Sphynx,Russian_Blue,0.729584813117981,False
+Bombay_67,oxford-iiit-pet/images/Bombay_67.jpg,3,7,Bombay,Persian,0.6222978830337524,False

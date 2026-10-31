@@ -1,0 +1,13 @@
+﻿true_breed,Abyssinian,Bengal,Birman,Bombay,British_Shorthair,Egyptian_Mau,Maine_Coon,Persian,Ragdoll,Russian_Blue,Siamese,Sphynx
+Abyssinian,90,7,0,0,0,0,0,1,0,0,0,0
+Bengal,2,94,0,0,0,2,2,0,0,0,0,0
+Birman,0,0,83,0,0,0,0,0,11,0,6,0
+Bombay,0,0,0,88,0,0,0,0,0,0,0,0
+British_Shorthair,2,1,0,4,86,0,0,1,5,1,0,0
+Egyptian_Mau,1,12,0,1,0,83,0,0,0,0,0,0
+Maine_Coon,0,6,0,1,0,0,80,1,12,0,0,0
+Persian,0,0,3,1,0,0,2,89,5,0,0,0
+Ragdoll,0,0,17,0,0,0,0,3,79,0,1,0
+Russian_Blue,2,1,0,6,5,0,0,0,0,86,0,0
+Siamese,0,1,5,0,0,0,0,0,0,0,94,0
+Sphynx,0,0,0,1,0,0,0,0,0,0,0,99

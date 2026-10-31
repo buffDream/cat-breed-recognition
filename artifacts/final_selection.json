@@ -1,0 +1,8 @@
+{
+  "run": "optimized",
+  "checkpoint": "artifacts/optimized/best.pt",
+  "selection_rule": "highest validation accuracy; ties keep earlier experiment",
+  "best_val_accuracy": 0.9411764705882353,
+  "test_accuracy": 0.8884192730346576,
+  "sha256": "f7c78c8aa1147b7e54503ba4dd5012aad0687f8a939f1efe21d2cd5e02b075ff"
+}
