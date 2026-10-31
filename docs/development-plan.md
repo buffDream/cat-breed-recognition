@@ -11,7 +11,7 @@
 - 从零训练作基线；再在同一个手写网络加载公开 ImageNet 权重微调。保存两组配置、逐轮记录、验证最佳权重和测试预测。
 - 测试集不参与选轮次或调参。所有成绩取实际运行结果。
 - NumPy 处理图片数组与混淆矩阵，Pandas 管理样本表和结果表，Matplotlib 画数据分布、曲线、混淆矩阵和错分图片。
-- 本地桌面演示支持选图、例图、前三个预测和模型切换。录制实际运行过程。
+- 本地桌面演示支持选图、例图、单一品种识别结果和模型切换。录制实际运行过程。
 - 文档使用 humanizer-zh 润色，直接写做法和结果；不编造个人经历，不使用用户指出的防御性套话。
 - 只做本地项目与 Git 历史；上传和分发由用户后续处理。
 
@@ -21,7 +21,7 @@
 2. `analyze.py`：`plot_data_summary(manifest_path, data_root, out_dir)` 画分布与样例；`plot_run_results(run_dir, data_root, manifest_path, out_dir)` 画训练曲线、混淆矩阵、每类指标与错分例图；命令行支持整理全部结果。
 3. `model.py`：`BasicBlock`、`ResNet18(num_classes=12)`，以及 `create_model(num_classes=12, pretrained=False)`。预训练参数来自 PyTorch 官方 ResNet18 地址，先加载 1000 类参数，再替换输出层。
 4. `train.py`：参数 `--data-root --manifest --out-dir --run scratch/finetune --epochs --batch-size --image-size --seed --patience --workers --device`。每个 run 目录保存 history.csv、best.pt、metrics.json、predictions.csv、config.json。history 列：epoch、train_loss、train_accuracy、val_loss、val_accuracy、lr、elapsed_seconds。predictions 列：image_id、relative_path、true_index、pred_index、true_breed、pred_breed、confidence、correct。metrics 包含 test_accuracy、macro_precision、macro_recall、macro_f1、num_test、best_epoch、best_val_accuracy、training_seconds。
-5. `predict.py`：`Predictor(checkpoint_path, device='auto')`，`predict(image_path)` 返回带 `top3` 列表的 dict，每项含 breed、breed_zh、probability。checkpoint 包含 state_dict、class_names、class_names_zh、image_size、run、best_epoch、best_val_accuracy、pretrained。
+5. `predict.py`：`Predictor(checkpoint_path, device='auto')`，`predict(image_path)` 返回仅包含一个结果的 dict：breed、breed_zh、probability。checkpoint 包含 state_dict、class_names、class_names_zh、image_size、run、best_epoch、best_val_accuracy、pretrained。
 6. `demo.py`：桌面界面，直接复用 Predictor。`examples/` 存精选的独立测试图片及标签表；同时包含正确与错分例子。
 7. `README.md`、项目说明 PDF、运行视频、环境记录和本地 Git 提交记录。
 
