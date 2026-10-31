@@ -22,6 +22,13 @@ from model import create_model
 HISTORY_COLUMNS = ['epoch', 'train_loss', 'train_accuracy', 'val_loss', 'val_accuracy', 'lr', 'elapsed_seconds']
 PREDICTION_COLUMNS = ['image_id', 'relative_path', 'true_index', 'pred_index', 'true_breed', 'pred_breed', 'confidence', 'correct']
 
+def set_training_mode(model, freeze_bn=False):
+    model.train()
+    if freeze_bn:
+        for module in model.modules():
+            if isinstance(module, nn.modules.batchnorm._BatchNorm):
+                module.eval()
+
 def resolve_device(name):
     if name == 'auto':
         return torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -108,6 +115,7 @@ def main():
     parser.add_argument('--base-weight', type=float, default=1.0)
     parser.add_argument('--backbone-lr', type=float)
     parser.add_argument('--head-lr', type=float)
+    parser.add_argument('--freeze-bn', action='store_true', help='Keep pretrained BatchNorm running statistics fixed')
     args = parser.parse_args()
     if args.epochs is None:
         args.epochs = 40 if args.run == 'scratch' else 30
@@ -212,6 +220,7 @@ def main():
                     'head_learning_rate': head_lr, 'weight_decay': 1e-4, 'epochs': args.epochs,
                     'batch_size': args.batch_size, 'seed': args.seed, 'patience': args.patience,
                     'initial_checkpoint': args.initial_checkpoint, 'balance': args.balance,
+                    'freeze_bn': args.freeze_bn,
                     'base_weight': args.base_weight, 'train_source_counts': config['train_source_counts'],
                     'normalization_mean': config['normalization_mean'], 'normalization_std': config['normalization_std']}, out / 'best.pt')
     if initial is not None:
@@ -224,15 +233,10 @@ def main():
         f.flush()
         for epoch in range(1, args.epochs + 1):
             epoch_start = time.perf_counter()
-            model.train()
             warmup = epoch <= args.warmup_epochs
+            set_training_mode(model, freeze_bn=args.freeze_bn or warmup)
             for parameter in backbone:
                 parameter.requires_grad_(not warmup)
-            if warmup:
-                # Keep the pretrained feature extractor's running statistics fixed.
-                for module in model.modules():
-                    if isinstance(module, nn.modules.batchnorm._BatchNorm):
-                        module.eval()
             running_loss = 0.0
             running_correct = 0
             total = 0

@@ -1,0 +1,33 @@
+{
+  "method": "source label equals existing classifier prediction and score >= threshold",
+  "checkpoint": "artifacts\\optimized\\best.pt",
+  "threshold": 0.7,
+  "candidate_extra_images": 17933,
+  "retained_extra_images": 6870,
+  "final_split_counts": {
+    "train": 7820,
+    "val": 238,
+    "test": 1183
+  },
+  "reason_counts": {
+    "label_disagreement": 7635,
+    "agreement_above_threshold": 6870,
+    "low_confidence": 3428
+  },
+  "retained_by_breed": {
+    "Abyssinian": 94,
+    "Bengal": 1649,
+    "Birman": 47,
+    "Bombay": 1564,
+    "British_Shorthair": 17,
+    "Egyptian_Mau": 22,
+    "Maine_Coon": 187,
+    "Persian": 1827,
+    "Ragdoll": 777,
+    "Russian_Blue": 224,
+    "Siamese": 377,
+    "Sphynx": 85
+  },
+  "original_rows_preserved": true,
+  "uses_validation_or_test_images_for_screening": false
+}

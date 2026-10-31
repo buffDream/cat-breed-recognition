@@ -1,0 +1,15 @@
+﻿file,image_id,breed,breed_zh,split,predicted_breed,correct,source_url
+Abyssinian_9.jpg,Abyssinian_9,Abyssinian,阿比西尼亚猫,official test,Abyssinian,True,https://www.robots.ox.ac.uk/~vgg/data/pets/
+Bengal_78.jpg,Bengal_78,Bengal,孟加拉猫,official test,Bengal,True,https://www.robots.ox.ac.uk/~vgg/data/pets/
+Birman_95.jpg,Birman_95,Birman,伯曼猫,official test,Birman,True,https://www.robots.ox.ac.uk/~vgg/data/pets/
+Abyssinian_205.jpg,Abyssinian_205,Abyssinian,阿比西尼亚猫,official test,Bengal,False,https://www.robots.ox.ac.uk/~vgg/data/pets/
+Bombay_43.jpg,Bombay_43,Bombay,孟买猫,official test,Bombay,True,https://www.robots.ox.ac.uk/~vgg/data/pets/
+British_Shorthair_71.jpg,British_Shorthair_71,British_Shorthair,英国短毛猫,official test,British_Shorthair,True,https://www.robots.ox.ac.uk/~vgg/data/pets/
+Egyptian_Mau_21.jpg,Egyptian_Mau_21,Egyptian_Mau,埃及猫,official test,Egyptian_Mau,True,https://www.robots.ox.ac.uk/~vgg/data/pets/
+Maine_Coon_34.jpg,Maine_Coon_34,Maine_Coon,缅因猫,official test,Maine_Coon,True,https://www.robots.ox.ac.uk/~vgg/data/pets/
+Persian_44.jpg,Persian_44,Persian,波斯猫,official test,Persian,True,https://www.robots.ox.ac.uk/~vgg/data/pets/
+Ragdoll_48.jpg,Ragdoll_48,Ragdoll,布偶猫,official test,Ragdoll,True,https://www.robots.ox.ac.uk/~vgg/data/pets/
+Russian_Blue_73.jpg,Russian_Blue_73,Russian_Blue,俄罗斯蓝猫,official test,Russian_Blue,True,https://www.robots.ox.ac.uk/~vgg/data/pets/
+Siamese_33.jpg,Siamese_33,Siamese,暹罗猫,official test,Siamese,True,https://www.robots.ox.ac.uk/~vgg/data/pets/
+Sphynx_82.jpg,Sphynx_82,Sphynx,斯芬克斯猫,official test,Sphynx,True,https://www.robots.ox.ac.uk/~vgg/data/pets/
+Abyssinian_207.jpg,Abyssinian_207,Abyssinian,阿比西尼亚猫,official test,Bengal,False,https://www.robots.ox.ac.uk/~vgg/data/pets/

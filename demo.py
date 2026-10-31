@@ -47,6 +47,9 @@ class CatApp(tk.Tk):
             self.after(22000, lambda: self.show_chart("训练曲线"))
             self.after(29000, lambda: self.show_chart("混淆矩阵"))
             self.after(36000, self.show_next_example)
+            self.after(44000, lambda: self.show_chart("错分样例"))
+            self.after(52000, lambda: self.show_chart("实验对比"))
+            self.after(62000, self.show_next_example)
 
     @staticmethod
     def find_models(checkpoint: Path | None) -> dict[str, Path]:
@@ -144,7 +147,7 @@ class CatApp(tk.Tk):
 
         chart_controls = ttk.Frame(self.results_tab)
         chart_controls.pack(fill="x", pady=(0, 10))
-        for label in ["训练曲线", "混淆矩阵", "错分样例", "类别分布"]:
+        for label in ["训练曲线", "混淆矩阵", "错分样例", "类别分布", "实验对比"]:
             ttk.Button(chart_controls, text=label, command=lambda value=label: self.show_chart(value)).pack(side="left", padx=(0, 8))
         self.chart_label = tk.Label(self.results_tab, text="选择一项查看实际实验结果", bg="white", fg=MUTED, font=("Microsoft YaHei UI", 14))
         self.chart_label.pack(fill="both", expand=True)
@@ -256,7 +259,7 @@ class CatApp(tk.Tk):
         checkpoint = self.models.get(self.model_var.get())
         run = checkpoint.parent.name if checkpoint else "finetune"
         root = ROOT / "artifacts" / "figures"
-        paths = {"训练曲线": root / run / "training_curves.png", "混淆矩阵": root / run / "confusion_matrix.png", "错分样例": root / run / "misclassified.png", "类别分布": root / "class_distribution.png"}
+        paths = {"训练曲线": root / run / "training_curves.png", "混淆矩阵": root / run / "confusion_matrix.png", "错分样例": root / run / "misclassified.png", "类别分布": root / "class_distribution.png", "实验对比": root / "comparison.png"}
         path = paths[label]
         self.tabs.select(self.results_tab)
         if not path.exists():

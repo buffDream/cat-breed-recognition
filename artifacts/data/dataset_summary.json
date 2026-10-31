@@ -1,0 +1,121 @@
+{
+  "dataset": "Oxford-IIIT Pet (official cat species=1)",
+  "source": "https://www.robots.ox.ac.uk/~vgg/data/pets/",
+  "seed": 42,
+  "val_fraction": 0.2,
+  "official_cat_counts": {
+    "trainval": 1188,
+    "test": 1183
+  },
+  "num_images": 2371,
+  "num_classes": 12,
+  "split_counts": {
+    "test": 1183,
+    "train": 950,
+    "val": 238
+  },
+  "removed_counts": {
+    "decode_error": 0,
+    "exact_duplicate": 0
+  },
+  "duplicate_policy": "test 优先；同一官方划分按 image_id 字母序保留第一张",
+  "hash_algorithm": "SHA-256 (原始图片文件字节)",
+  "class_names": [
+    "Abyssinian",
+    "Bengal",
+    "Birman",
+    "Bombay",
+    "British_Shorthair",
+    "Egyptian_Mau",
+    "Maine_Coon",
+    "Persian",
+    "Ragdoll",
+    "Russian_Blue",
+    "Siamese",
+    "Sphynx"
+  ],
+  "class_names_zh": [
+    "阿比西尼亚猫",
+    "孟加拉猫",
+    "伯曼猫",
+    "孟买猫",
+    "英国短毛猫",
+    "埃及猫",
+    "缅因猫",
+    "波斯猫",
+    "布偶猫",
+    "俄罗斯蓝猫",
+    "暹罗猫",
+    "斯芬克斯猫"
+  ],
+  "class_counts": {
+    "Abyssinian": {
+      "train": 80,
+      "val": 20,
+      "test": 98
+    },
+    "Bengal": {
+      "train": 80,
+      "val": 20,
+      "test": 100
+    },
+    "Birman": {
+      "train": 80,
+      "val": 20,
+      "test": 100
+    },
+    "Bombay": {
+      "train": 77,
+      "val": 19,
+      "test": 88
+    },
+    "British_Shorthair": {
+      "train": 80,
+      "val": 20,
+      "test": 100
+    },
+    "Egyptian_Mau": {
+      "train": 74,
+      "val": 19,
+      "test": 97
+    },
+    "Maine_Coon": {
+      "train": 80,
+      "val": 20,
+      "test": 100
+    },
+    "Persian": {
+      "train": 80,
+      "val": 20,
+      "test": 100
+    },
+    "Ragdoll": {
+      "train": 80,
+      "val": 20,
+      "test": 100
+    },
+    "Russian_Blue": {
+      "train": 80,
+      "val": 20,
+      "test": 100
+    },
+    "Siamese": {
+      "train": 79,
+      "val": 20,
+      "test": 100
+    },
+    "Sphynx": {
+      "train": 80,
+      "val": 20,
+      "test": 100
+    }
+  },
+  "width": {
+    "min": 114,
+    "max": 3264
+  },
+  "height": {
+    "min": 103,
+    "max": 2606
+  }
+}

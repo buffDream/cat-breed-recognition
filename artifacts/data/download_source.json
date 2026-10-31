@@ -1,0 +1,9 @@
+{
+  "mirror": "fastai",
+  "source_url": "https://s3.amazonaws.com/fast-ai-imageclas/oxford-iiit-pet.tgz",
+  "source_reference": "https://docs.fast.ai/data.external.html#urlspets",
+  "archive_bytes": 811706944,
+  "sha256": "3f1b76957366427dd5c12e3d48488be28dabd99a403bdb2b5100a83b9fd162d4",
+  "sha256_role": "local_file_fingerprint",
+  "extraction_completed": true
+}
