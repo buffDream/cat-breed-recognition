@@ -74,7 +74,7 @@ def plot_data_summary(manifest_path, data_root, out_dir):
     fig.tight_layout()
     _save(fig, out_dir / "class_distribution.png")
 
-    fig, axes = plt.subplots(3, 4, figsize=(12, 10))
+    fig, axes = plt.subplots(3, 4, figsize=(12, 13))
     selected = []
     for index, ax in enumerate(axes.flat):
         candidates = frame[(frame.class_index == index) & (frame.split == "train")]
@@ -86,10 +86,11 @@ def plot_data_summary(manifest_path, data_root, out_dir):
             continue
         row = candidates.sort_values("image_id").iloc[0]
         ax.imshow(_image_array(data_root / row.relative_path))
-        ax.set_title(f"{labels[index]}\n{row.image_id}", fontsize=10)
+        ax.set_title(f"{labels[index]}\n{row.image_id}", fontsize=10, pad=10)
         selected.append(row.to_dict())
     fig.suptitle("各品种图片示例（来自训练集）", fontsize=16)
-    fig.tight_layout(rect=(0, 0, 1, 0.96))
+    # 双行标题需要独立行距，避免落到上一行图片上。
+    fig.subplots_adjust(left=0.035, right=0.985, bottom=0.025, top=0.90, wspace=0.15, hspace=0.40)
     _save(fig, out_dir / "sample_grid.png")
     pd.DataFrame(selected).to_csv(out_dir / "sample_grid.csv", index=False, encoding="utf-8-sig")
     return counts
@@ -194,16 +195,20 @@ def _plot_mistakes(predictions, data_root, out_dir):
         selected = pd.concat([selected, mistakes.drop(index=selected.index)]).head(12)
     selected.to_csv(out_dir / "misclassified_selected.csv", index=False, encoding="utf-8-sig")
     nrows = (len(selected) + 3) // 4
-    fig, axes = plt.subplots(nrows, 4, figsize=(12, 3.4 * nrows), squeeze=False)
+    figure_height = 4.2 * nrows + 0.7
+    fig, axes = plt.subplots(nrows, 4, figsize=(12, figure_height), squeeze=False)
     for ax in axes.flat:
         ax.axis("off")
     for ax, (_, row) in zip(axes.flat, selected.iterrows()):
         ax.imshow(_image_array(data_root / row.relative_path))
         true_zh = BREEDS[int(row.true_index)][1]
         pred_zh = BREEDS[int(row.pred_index)][1]
-        ax.set_title(f"真实：{true_zh}\n预测：{pred_zh}（{row.confidence:.1%}）", fontsize=10)
+        ax.set_title(f"真实：{true_zh}\n预测：{pred_zh}（{row.confidence:.1%}）", fontsize=10, pad=10)
     fig.suptitle("错分示例（优先展示不同品种）", fontsize=15)
-    fig.tight_layout(rect=(0, 0, 1, 0.94))
+    fig.subplots_adjust(
+        left=0.035, right=0.985, bottom=0.025, top=1 - 0.8 / figure_height,
+        wspace=0.15, hspace=0.40,
+    )
     _save(fig, out_dir / "misclassified.png")
 
 
@@ -258,7 +263,7 @@ def compare_runs(run_dirs, out_dir):
         values = row[keys].to_numpy(dtype=float)
         bars = ax.bar(x + (index - (len(frame) - 1) / 2) * width, values, width, label=row["run"])
         ax.bar_label(bars, labels=[f"{value:.1%}" for value in values], padding=3, fontsize=9)
-    ax.set(xticks=x, xticklabels=labels, ylim=(0, 1.12), ylabel="分数", title="两种训练方式的独立测试集结果")
+    ax.set(xticks=x, xticklabels=labels, ylim=(0, 1.12), ylabel="分数", title="各组实验的独立测试集结果")
     ax.legend(frameon=False)
     ax.grid(axis="y", alpha=0.2)
     ax.set_axisbelow(True)

@@ -255,14 +255,14 @@ def make_transforms(image_size=160, training=False):
     if training:
         operations = [
             transforms.RandomResizedCrop(
-                image_size, scale=(0.7, 1.0), interpolation=InterpolationMode.BILINEAR
+                image_size, scale=(0.75 if image_size == 224 else 0.7, 1.0), interpolation=InterpolationMode.BILINEAR
             ),
             transforms.RandomHorizontalFlip(),
             transforms.ColorJitter(brightness=0.12, contrast=0.12, saturation=0.12, hue=0.025),
         ]
     else:
         operations = [
-            transforms.Resize(round(image_size * 1.1), interpolation=InterpolationMode.BILINEAR),
+            transforms.Resize(232 if image_size == 224 else round(image_size * 1.1), interpolation=InterpolationMode.BILINEAR),
             transforms.CenterCrop(image_size),
         ]
     return transforms.Compose([

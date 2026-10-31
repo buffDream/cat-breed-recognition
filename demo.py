@@ -26,7 +26,7 @@ class CatApp(tk.Tk):
     def __init__(self, checkpoint: Path | None = None, auto_demo: bool = False):
         super().__init__()
         self.title("Cat Breed Recognition")
-        self.geometry("1080x760")
+        self.geometry("1080x760+100+80")
         self.minsize(960, 700)
         self.configure(bg=BG)
         self.jobs: queue.Queue = queue.Queue()
@@ -52,11 +52,20 @@ class CatApp(tk.Tk):
     def find_models(checkpoint: Path | None) -> dict[str, Path]:
         if checkpoint:
             return {"指定模型": checkpoint.resolve()}
+        labels = {"expanded": "扩充训练模型", "optimized": "ResNet50 优化模型",
+                  "finetune": "ResNet18 微调对照", "scratch": "ResNet18 从零训练对照"}
+        order = ["optimized", "expanded", "finetune", "scratch"]
+        selection = ROOT / "artifacts" / "final_selection.json"
+        if selection.is_file():
+            selected = json.loads(selection.read_text(encoding="utf-8")).get("run")
+            if selected in labels:
+                order.remove(selected)
+                order.insert(0, selected)
         models = {}
-        for run, label in [("finetune", "手写 ResNet18 · 预训练后微调"), ("scratch", "手写 ResNet18 · 从零训练")]:
+        for run in order:
             path = ROOT / "artifacts" / run / "best.pt"
             if path.exists():
-                models[label] = path
+                models[labels[run]] = path
         return models
 
     @staticmethod
@@ -82,7 +91,7 @@ class CatApp(tk.Tk):
         header = ttk.Frame(self, padding=(28, 18, 28, 12))
         header.pack(fill="x")
         ttk.Label(header, text="看图识猫", font=("Microsoft YaHei UI", 25, "bold")).pack(anchor="w")
-        ttk.Label(header, text="12 个猫品种 · 手写 ResNet18", foreground=MUTED).pack(anchor="w", pady=(4, 0))
+        ttk.Label(header, text="12 个猫品种 · 选择照片，识别一个品种", foreground=MUTED).pack(anchor="w", pady=(4, 0))
 
         toolbar = ttk.Frame(self, padding=(28, 0, 28, 16))
         toolbar.pack(fill="x")

@@ -1,0 +1,9 @@
+{
+  "source": "Kaggle ma7555/cat-breeds-dataset",
+  "version": 2,
+  "source_url": "https://www.kaggle.com/datasets/ma7555/cat-breeds-dataset",
+  "candidate_images": 18738,
+  "downloaded_range_bytes": 292623093,
+  "original_zip_bytes": 2069609007,
+  "validation": "HTTP Content-Range + per-image ZIP CRC32"
+}

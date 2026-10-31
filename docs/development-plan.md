@@ -34,3 +34,16 @@
 - [ ] 完成桌面演示、说明文档和实际运行视频，整理本地交付包。
 
 具体实现由开发过程决定。对照实验的设置、数据清理数量和实际成绩在运行记录中保存，文档据此撰写。
+
+## 识别效果优化
+
+用户要求提高原微调模型的识别准确率。保留原始 train/val/test 清单，不更换测试图片。新增 `artifacts/optimized/` 保存优化实验，原两组结果保留。
+
+- 在基础层代码中增加 Bottleneck 和标准 ResNet50，阶段块数为 [3, 4, 6, 3]，兼容 PyTorch 官方 ResNet50 V2 参数 `resnet50-11ad3fa6.pth`。不调用 torchvision 模型构建函数。
+- 优化组输入 224×224，先训练分类层两轮，再用较小的主干学习率微调整网。AdamW，主干学习率 5e-5、分类层 5e-4、权重衰减 1e-4、标签平滑 0.05，最多 35 轮、验证早停 12 轮。
+- 224 输入的训练裁剪范围为 0.75~1.0，保留水平翻转和轻微颜色变化；验证短边缩放到 232 后中心裁剪 224。160 输入保留原配方。验证/测试/预测统一使用相应确定性预处理。
+- 优化组对原图与水平翻转图各预测一次，平均分数后只输出一个品种。这个设置同时用于验证、测试和桌面预测。
+- `train.py` 增加 `--architecture resnet18/resnet50`（默认 resnet18）、`--warmup-epochs`、`--label-smoothing`、`--tta`；原 scratch/finetune 参数兼容。优化组仍用 `--run finetune`，以独立 out-dir 区分。
+- checkpoint 保存 architecture、tta、warmup_epochs、label_smoothing 等新增配置。旧 checkpoint 缺少 architecture 时按 resnet18 加载，缺少 tta 时按 False。
+- `Predictor.predict` 保持单结果 dict：breed、breed_zh、probability。
+- 验证集用于选最佳轮次；优化组设置确定后才生成独立测试结果。不把数据增强数量当成独立照片数量。

@@ -1,0 +1,222 @@
+{
+  "base_manifest": "C:\\Users\\sjysj\\Documents\\Codex\\2026-10-31\\new-chat\\outputs\\cat-breed-recognition\\artifacts\\data\\manifest.csv",
+  "base_manifest_sha256": "c1ab97746eab7641e95a9f28a910db4dbf89dd6bea44017ced491b031c4dd53a",
+  "data_root": "C:\\Users\\sjysj\\Documents\\Codex\\2026-10-31\\new-chat\\work\\cat-data",
+  "extra_root": "C:\\Users\\sjysj\\Documents\\Codex\\2026-10-31\\new-chat\\work\\cat-extra\\selected-images",
+  "extra_source": {
+    "name": "kaggle_ma7555_cat_breeds_v2",
+    "url": "https://www.kaggle.com/datasets/ma7555/cat-breeds-dataset",
+    "version": 2
+  },
+  "candidate_images": 18738,
+  "candidate_counts_by_source_label": {
+    "Abyssinian": 255,
+    "Bengal": 2477,
+    "Birman": 227,
+    "Bombay": 1835,
+    "British_Shorthair": 567,
+    "Egyptian_Mau": 305,
+    "Maine_Coon": 1418,
+    "Persian": 4018,
+    "Ragdoll": 2669,
+    "Russian_Blue": 1870,
+    "Siamese": 2888,
+    "Sphynx": 209
+  },
+  "base_images": 2371,
+  "base_split_counts": {
+    "train": 950,
+    "val": 238,
+    "test": 1183
+  },
+  "added_train_images": 17933,
+  "new_train_images": 18883,
+  "final_images": 20304,
+  "final_split_counts": {
+    "train": 18883,
+    "val": 238,
+    "test": 1183
+  },
+  "removed_images": 805,
+  "removed_counts": {
+    "exact_duplicate_extra": 614,
+    "low_variation": 2,
+    "near_duplicate_extra": 43,
+    "near_duplicate_heldout": 2,
+    "too_small": 144
+  },
+  "breed_counts": {
+    "Abyssinian": {
+      "added_train": 231,
+      "base": {
+        "train": 80,
+        "val": 20,
+        "test": 98
+      },
+      "final": {
+        "train": 311,
+        "val": 20,
+        "test": 98
+      }
+    },
+    "Bengal": {
+      "added_train": 2429,
+      "base": {
+        "train": 80,
+        "val": 20,
+        "test": 100
+      },
+      "final": {
+        "train": 2509,
+        "val": 20,
+        "test": 100
+      }
+    },
+    "Birman": {
+      "added_train": 220,
+      "base": {
+        "train": 80,
+        "val": 20,
+        "test": 100
+      },
+      "final": {
+        "train": 300,
+        "val": 20,
+        "test": 100
+      }
+    },
+    "Bombay": {
+      "added_train": 1751,
+      "base": {
+        "train": 77,
+        "val": 19,
+        "test": 88
+      },
+      "final": {
+        "train": 1828,
+        "val": 19,
+        "test": 88
+      }
+    },
+    "British_Shorthair": {
+      "added_train": 552,
+      "base": {
+        "train": 80,
+        "val": 20,
+        "test": 100
+      },
+      "final": {
+        "train": 632,
+        "val": 20,
+        "test": 100
+      }
+    },
+    "Egyptian_Mau": {
+      "added_train": 294,
+      "base": {
+        "train": 74,
+        "val": 19,
+        "test": 97
+      },
+      "final": {
+        "train": 368,
+        "val": 19,
+        "test": 97
+      }
+    },
+    "Maine_Coon": {
+      "added_train": 1321,
+      "base": {
+        "train": 80,
+        "val": 20,
+        "test": 100
+      },
+      "final": {
+        "train": 1401,
+        "val": 20,
+        "test": 100
+      }
+    },
+    "Persian": {
+      "added_train": 3924,
+      "base": {
+        "train": 80,
+        "val": 20,
+        "test": 100
+      },
+      "final": {
+        "train": 4004,
+        "val": 20,
+        "test": 100
+      }
+    },
+    "Ragdoll": {
+      "added_train": 2574,
+      "base": {
+        "train": 80,
+        "val": 20,
+        "test": 100
+      },
+      "final": {
+        "train": 2654,
+        "val": 20,
+        "test": 100
+      }
+    },
+    "Russian_Blue": {
+      "added_train": 1781,
+      "base": {
+        "train": 80,
+        "val": 20,
+        "test": 100
+      },
+      "final": {
+        "train": 1861,
+        "val": 20,
+        "test": 100
+      }
+    },
+    "Siamese": {
+      "added_train": 2651,
+      "base": {
+        "train": 79,
+        "val": 20,
+        "test": 100
+      },
+      "final": {
+        "train": 2730,
+        "val": 20,
+        "test": 100
+      }
+    },
+    "Sphynx": {
+      "added_train": 205,
+      "base": {
+        "train": 80,
+        "val": 20,
+        "test": 100
+      },
+      "final": {
+        "train": 285,
+        "val": 20,
+        "test": 100
+      }
+    }
+  },
+  "cleaning": {
+    "exif_transpose": true,
+    "minimum_edge": 128,
+    "low_variation_rule": "EXIF校正后整张灰度图的像素标准差 < 5",
+    "raw_sha256": "排除与原全部样本、额外来源先前文件完全相同的图片",
+    "phash_definition": "灰度LANCZOS缩放32x32；正交DCT；左上8x8低频；除DC外63系数中位数；大于中位数置1；DC位固定0；64位整数",
+    "phash_distance": 6,
+    "phash_comparison": "与原val/test全部pHash、已接纳额外图片全部pHash比较；汉明距离小于等于阈值时移除",
+    "near_duplicate_policy": "原val/test全部保留；额外来源按BREEDS顺序及相对路径排序保留第一张"
+  },
+  "original_rows_unchanged": true,
+  "extra_cleaning_log": "C:\\Users\\sjysj\\Documents\\Codex\\2026-10-31\\new-chat\\outputs\\cat-breed-recognition\\artifacts\\data-expanded\\extra_cleaning_log.csv",
+  "source_index": {
+    "path": "C:\\Users\\sjysj\\Documents\\Codex\\2026-10-31\\new-chat\\work\\cat-extra\\selected-images\\source-index.csv",
+    "sha256": "a541ad0b79d17ee8ac85e08df75fa2a6171eaabf9fb153e7aa5a2a053259c533"
+  }
+}

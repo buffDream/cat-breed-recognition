@@ -22,7 +22,9 @@ class Predictor:
             self.class_names_zh = checkpoint['class_names_zh']
             if len(self.class_names) != len(self.class_names_zh) or not self.class_names:
                 raise ValueError('类别信息不完整')
-            self.model = create_model(num_classes=len(self.class_names), pretrained=False)
+            self.architecture = checkpoint.get('architecture', 'resnet18')
+            self.tta = checkpoint.get('tta', False)
+            self.model = create_model(num_classes=len(self.class_names), pretrained=False, architecture=self.architecture)
             self.model.load_state_dict(checkpoint['state_dict'])
             self.transform = make_transforms(image_size=int(checkpoint['image_size']), training=False)
         except (KeyError, RuntimeError, ValueError, TypeError) as exc:
@@ -40,7 +42,10 @@ class Predictor:
         except (OSError, UnidentifiedImageError, ValueError) as exc:
             raise ValueError(f'无法读取图片：{path}。请检查图片是否损坏或格式是否受支持。') from exc
         with torch.inference_mode():
-            scores = self.model(tensor).softmax(dim=1)[0]
+            scores = self.model(tensor).float().softmax(dim=1)
+            if self.tta:
+                scores = (scores + self.model(torch.flip(tensor, dims=[3])).float().softmax(dim=1)) / 2
+            scores = scores[0]
             index = int(scores.argmax().item())
             probability = float(scores[index].item())
         return {'breed': self.class_names[index], 'breed_zh': self.class_names_zh[index],
