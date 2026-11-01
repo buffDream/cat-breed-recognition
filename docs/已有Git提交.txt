@@ -1,2 +1,0 @@
-83fa7ff feat: implement cat dataset pipeline and handwritten ResNet training
-ff973c1 docs: define cat breed project and experiment plan

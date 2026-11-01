@@ -128,7 +128,7 @@ python -m venv .venv
 | make_report.py | 从真实记录生成项目说明PDF及文本副本 |
 | artifacts/ | 数据清单、清理记录、配置、逐轮指标、预测、图表 |
 | examples/ | 来自官方测试集的演示图片和原始标签 |
-| docs/ | 数据来源、课程方法、开发记录与考核原文 |
+| docs/ | 数据来源、下载索引与实验整理记录 |
 | 上传到Gitee.cmd | 用户主动运行后，将已有Git提交上传到空仓库 |
 
 ## 重新整理和训练
@@ -153,7 +153,7 @@ python -m venv .venv
 
 ```powershell
 .\\.venv\\Scripts\\python.exe -m pip install -r requirements-extra.txt
-.\\.venv\\Scripts\\python.exe -X utf8 make_report.py
+.\\.venv\\Scripts\\python.exe -X utf8 make_report.py --output ..\\项目说明.pdf
 ```
 
 ## 资料和开发记录
@@ -162,7 +162,9 @@ python -m venv .venv
 - Kaggle Cat Breeds Dataset v2：https://www.kaggle.com/datasets/ma7555/cat-breeds-dataset
 - ResNet论文：https://arxiv.org/abs/1512.03385
 - 官方权重：https://download.pytorch.org/models/resnet18-f37072fd.pth 和 https://download.pytorch.org/models/resnet50-11ad3fa6.pth
-- 课程与参考项目阅读摘要见docs；网络、数据流程和演示根据猫识别选题编写。
+- 训练流程参考阅读：[花卉分类](https://github.com/dm9717/flower-classification)、[垃圾分类](https://github.com/AidinHamedi/Pytorch-Garbage-Classification)、[植物病害分类](https://github.com/abdullahselek/plant-disease-classification-pytorch)。网络、数据整理和演示根据猫识别选题编写。
+
+考核原文、课程阅读摘要、上传步骤和交接记录保存在完整交付材料外层的“开发过程记录”，与代码仓库分开保存。
 
 训练配置在每组config.json，逐轮记录在history.csv，测试指标在metrics.json，逐图预测在predictions.csv。本地Git保留实际开发阶段。上传、分发由用户执行，具体步骤见独立的上传操作说明。
 '''
