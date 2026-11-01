@@ -1,0 +1,9 @@
+# Conda bootstrap for the project's actual Python version.
+# The original training environment used venv; pip packages are in requirements.txt.
+name: cat-breed-recognition
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12.14
+  - pip
+  - tk

@@ -1,3 +1,7 @@
+# Actual training/development environment: Windows, Python 3.12.14, CUDA 12.8.
+# Full pip freeze snapshot; local wheel references replaced by version pins.
+# Restore: python -m pip install -r environment-lock.txt
+--extra-index-url https://download.pytorch.org/whl/cu128
 charset-normalizer==3.5.2
 contourpy==1.4.0
 cycler==0.12.1
@@ -31,7 +35,7 @@ setuptools==84.2.1
 six==1.17.0
 sympy==1.14.0
 tabulate==0.10.0
-torch @ file:///C:/Users/sjysj/Documents/Codex/2026-10-31/new-chat/work/cat-project/torch-2.9.1%2Bcu128-cp312-cp312-win_amd64.whl#sha256=3a01f0b64c10a82d444d9fd06b3e8c567b1158b76b2764b8f51bfd8f535064b0
-torchvision @ https://download.pytorch.org/whl/cu128/torchvision-0.24.1%2Bcu128-cp312-cp312-win_amd64.whl#sha256=33ecea57afa1daeedfed443a8a0cb8e4b0b403fdf18c2a328ba6f9069d403384
+torch==2.9.1+cu128
+torchvision==0.24.1+cu128
 typing_extensions==4.16.0
 tzdata==2026.6

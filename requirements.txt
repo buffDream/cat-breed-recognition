@@ -1,6 +1,40 @@
+# Python 3.12.14; Windows. Exported from the actual project environment.
+# Install the CPU or CUDA PyTorch build first, following README.md.
+# Local wheel references were replaced with published version pins.
+charset-normalizer==3.5.2
+contourpy==1.4.0
+cycler==0.12.1
+filelock==4.2.5
+flatbuffers==25.12.19
+fonttools==4.68.0
+fsspec==2026.9.0
+imageio-ffmpeg==0.7.0
+Jinja2==3.1.6
+kiwisolver==1.5.1
+MarkupSafe==3.0.4
+matplotlib==3.10.8
+mpmath==1.3.0
+networkx==3.7
+numpy==2.3.5
+onnxruntime==1.31.1
+packaging==26.3
+pandas==3.0.1
+pillow==12.3.0
+protobuf==7.36.2
+psutil==7.2.2
+pymupdf==2.0
+pymupdf4llm==2.0
+pymupdf_layout==2.0
+pyparsing==3.3.3
+pypdf==6.21.4
+python-dateutil==3.0.0
+PyYAML==6.0.3
+reportlab==5.1.0
+setuptools==84.2.1
+six==1.17.0
+sympy==1.14.0
+tabulate==0.10.0
 torch==2.9.1
 torchvision==0.24.1
-numpy==2.3.5
-pandas==3.0.1
-matplotlib==3.10.8
-Pillow==12.3.0
+typing_extensions==4.16.0
+tzdata==2026.6
